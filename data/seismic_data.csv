@@ -1,0 +1,21 @@
+type,time,longitude,latitude,magnitude,depth,profile_name
+earthquake,0.0,-122.321,47.553,6.8,12.34,
+earthquake,149.0,-122.285,47.527,3.1,8.92,
+earthquake,298.0,-122.312,47.564,2.9,15.67,
+earthquake,447.0,-122.298,47.541,3.5,5.23,
+earthquake,596.0,-122.327,47.558,2.7,19.81,
+station,,-122.391,47.560,,,West Seattle - 47th Ave
+station,,-122.391,47.559955,,,West Seattle - 47th Ave
+station,,-122.391,47.55991,,,West Seattle - 47th Ave
+station,,-122.391,47.559865,,,West Seattle - 47th Ave
+station,,-122.391,47.55982,,,West Seattle - 47th Ave
+station,,-122.315,47.595,,,Central Seattle - 13th St
+station,,-122.315,47.594955,,,Central Seattle - 13th St
+station,,-122.315,47.59491,,,Central Seattle - 13th St
+station,,-122.315,47.594865,,,Central Seattle - 13th St
+station,,-122.315,47.59482,,,Central Seattle - 13th St
+station,,-122.230,47.580,,,Mercer Island - 78th Ave SE
+station,,-122.230,47.579955,,,Mercer Island - 78th Ave SE
+station,,-122.230,47.57991,,,Mercer Island - 78th Ave SE
+station,,-122.230,47.579865,,,Mercer Island - 78th Ave SE
+station,,-122.230,47.57982,,,Mercer Island - 78th Ave SE
