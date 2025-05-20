@@ -124,6 +124,12 @@ __pypackages__/
 celerybeat-schedule
 celerybeat.pid
 
+# User-specific files
+balar/
+*.balar
+*balar*
+
+
 # SageMath parsed files
 *.sage.py
 
