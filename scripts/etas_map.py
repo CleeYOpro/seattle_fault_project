@@ -46,22 +46,11 @@ def predict_earthquake_locations(eq_locs, bandwidth=0.01):
     return lon_grid, lat_grid, probability
 
 def compute_etas_intensity(eq_times, eq_locs, eq_mags, current_time):
-    west, east, south, north = MAP_EXTENT
-    lon_range = np.linspace(west, east, 200)
-    lat_range = np.linspace(south, north, 200)
+    lon_range = np.linspace(MAP_EXTENT[0], MAP_EXTENT[1], 200)
+    lat_range = np.linspace(MAP_EXTENT[2], MAP_EXTENT[3], 200)
     lon_grid, lat_grid = np.meshgrid(lon_range, lat_range)
 
-    # ETAS parameters
-    mu = 0.01  # background rate
-    k = 0.1    # aftershock productivity
-    alpha = 1.0  # magnitude scaling
-    c = 0.01   # time offset
-    p = 1.0    # temporal decay
-    d = 0.1    # spatial scaling
-    q = 2.0    # spatial decay
-    M0 = 4.0   # reference magnitude
-
-    # Get predicted earthquake probability
+    mu, k, alpha, c, p, d, q, M0 = 0.01, 0.1, 1.0, 0.01, 1.0, 0.1, 2.0, 4.0
     _, _, eq_probability = predict_earthquake_locations(eq_locs)
     intensity = np.full_like(lon_grid, mu) * eq_probability
     grid_points = np.stack([lon_grid.ravel(), lat_grid.ravel()], axis=1)
@@ -69,13 +58,11 @@ def compute_etas_intensity(eq_times, eq_locs, eq_mags, current_time):
     for t_i, loc_i, M_i in zip(eq_times, eq_locs, eq_mags):
         if t_i < current_time:
             dt = current_time - t_i + c
-            r = np.sqrt(((grid_points[:, 0] - loc_i[0]) * 111)**2 + 
-                        ((grid_points[:, 1] - loc_i[1]) * 111 * np.cos(np.radians(loc_i[1])))**2) + d
+            r = np.sqrt(((grid_points[:, 0] - loc_i[0]) * 111)**2 + ((grid_points[:, 1] - loc_i[1]) * 111 * np.cos(np.radians(loc_i[1])))**2) + d
             productivity = k * np.exp(alpha * (M_i - M0))
             temporal_term = productivity / (dt ** p)
             spatial_term = 1 / (r ** q)
             intensity += (temporal_term * spatial_term).reshape(lon_grid.shape)
-
     return lon_grid, lat_grid, intensity
 
 def calculate_mmi(magnitude, distance_km):
@@ -263,3 +250,12 @@ if __name__ == "__main__":
     
     # Plot the results with historical earthquakes, simulated quake and MMI intensity
     plot_map_mmi(eq_locs, lon_grid, lat_grid, mmi_grid, recent_high_mag_locs, recent_high_mag_mags)
+
+
+    aftershock_mag = ETAS_return
+    distances = np.sqrt(((lon_grid - mean_eq_loc[0]) * 111 * np.cos(np.radians(mean_eq_loc[1])))**2 + ((lat_grid - mean_eq_loc[1]) * 111)**2)
+    log_pga = 0.3 + 0.59 * (aftershock_mag - 6) - 0.0075 * distances - 1.6 * np.log10(distances + 10)
+    pga = 10 ** log_pga
+    mmi = np.where(pga < 0.0017, 1.0, 3.66 * np.log10(pga * 980) - 1.66)
+    mmi = np.clip(mmi, 1, 12)
+    weighted_mmi = mmi * intensity / np.max(intensity)  # Scale MMI by aftershock probability
