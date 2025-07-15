@@ -213,7 +213,7 @@ def plot_map_mmi(eq_locs, lon_grid, lat_grid, mmi_grid, recent_high_mag_locs=Non
                         edgecolor='black', linewidth=1.5,
                         label='Predicted Location of M7 EQ', 
                         transform=ccrs.PlateCarree())
-
+    
     # Combine MMI patches with earthquake markers for legend
     handles = mmi_patches + [historical_eq, sim_eq]
     if recent_eq_handle is not None:
