@@ -83,3 +83,4 @@ python scripts/seattle_eq_impact.py
 ---
 
 *For questions or contributions, please open an issue or pull request.*
+*this project won 1st in geospatial tech TSA in WA btw*
