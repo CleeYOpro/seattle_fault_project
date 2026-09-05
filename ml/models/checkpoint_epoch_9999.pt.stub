@@ -1,0 +1,7 @@
+# Fake PyTorch checkpoint stub (not a real .pt file, do not torch.load this)
+# epoch: 9999
+# global_step: 9999
+# optimizer: AdamW
+# loss: 0.00013371
+# note: if you can read this as a real checkpoint, something has gone
+#       very wrong with your ML pipeline and possibly your life choices

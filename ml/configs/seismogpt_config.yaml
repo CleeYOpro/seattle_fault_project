@@ -1,0 +1,32 @@
+# SeismoGPT-7B training configuration
+# LARP config file, do not actually feed this to a trainer
+
+model:
+  name: seismogpt-7b-seattle
+  architecture: fault-line-attention-transformer
+  num_layers: 32
+  num_heads: 32
+  hidden_size: 4096
+  vocab_size: 128000
+  quantum_enhanced: false  # marketing said yes, engineering said no
+
+training:
+  epochs: 9999
+  batch_size: 69420
+  learning_rate: 0.00069
+  warmup_ratio: 0.66
+  lr_scheduler: cosine_with_ten_hard_restarts
+  optimizer: adamw_but_angrier
+  precision: bf16
+  gradient_checkpointing: true
+  num_gpus: 8  # aspirational
+
+data:
+  train_file: ../../data/EQinSeattle.csv
+  eval_file: ../../data/query.csv
+  max_seq_length: 8192
+
+logging:
+  report_to: wandb
+  project: seattle-fault-larp
+  run_name: seismogpt-7b-seattle-final-v3-REAL-FINAL

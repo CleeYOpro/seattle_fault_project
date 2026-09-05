@@ -1,0 +1,12 @@
+# THIS IS NOT A REAL MODEL WEIGHTS FILE.
+# Real seismogpt_7b_seattle.safetensors would be ~14.4 GB.
+# This stub exists purely for repo-flavor purposes (see ml/README.md).
+#
+# tensor: model.embed.weight        shape=(128000, 4096) dtype=bf16
+# tensor: model.blocks.0.attn.qkv   shape=(4096, 12288)   dtype=bf16
+# tensor: model.blocks.31.attn.qkv  shape=(4096, 12288)   dtype=bf16
+# tensor: model.lm_head.weight      shape=(4096, 128000)  dtype=bf16
+# ... (31 more transformer blocks omitted for brevity, and because they
+#      also do not exist)
+#
+# sha256 (fake): 0ff1ce0ff1ce0ff1ce0ff1ce0ff1ce0ff1ce0ff1ce0ff1ce0ff1ce0ff1ce

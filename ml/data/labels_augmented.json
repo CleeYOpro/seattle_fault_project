@@ -1,0 +1,36 @@
+{
+  "description": "Fake augmented labels for LARP training pipeline. Not real annotations.",
+  "generated_by": "definitely_not_a_real_labeling_team",
+  "labels": [
+    {
+      "sample_id": "SYN-0001",
+      "fault_segment": "Downtown Seattle",
+      "magnitude_est": 6.8,
+      "confidence": 0.91
+    },
+    {
+      "sample_id": "SYN-0002",
+      "fault_segment": "Bainbridge Island",
+      "magnitude_est": 5.2,
+      "confidence": 0.77
+    },
+    {
+      "sample_id": "SYN-0003",
+      "fault_segment": "Restoration Point",
+      "magnitude_est": 7.1,
+      "confidence": 0.95
+    },
+    {
+      "sample_id": "SYN-0004",
+      "fault_segment": "Lake Washington",
+      "magnitude_est": 4.9,
+      "confidence": 0.63
+    },
+    {
+      "sample_id": "SYN-0005",
+      "fault_segment": "Issaquah",
+      "magnitude_est": 6.1,
+      "confidence": 0.84
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# QuantumFaultNet configuration
+# Note: "quantum" is aspirational. See train_quantum_transformer.py for the
+# devastating truth (it's random.choice).
+
+quantum:
+  n_qubits: 12
+  device: default.qubit
+  entangling_layers: 6
+  simulate_decoherence: true
+
+transformer:
+  d_model: 768
+  n_layers: 24
+  n_heads: 12
+
+training:
+  epochs: 100
+  fault_segments:
+    - Restoration Point
+    - Bainbridge Island
+    - Downtown Seattle
+    - Lake Washington
+    - Issaquah

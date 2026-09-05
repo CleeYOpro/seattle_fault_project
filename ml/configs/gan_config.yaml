@@ -1,0 +1,19 @@
+# EarthquakeGAN configuration
+gan:
+  z_dim: 128
+  seq_len: 4096
+  critic_iterations: 5
+  gradient_penalty_weight: 10.0
+
+optimizer:
+  generator_lr: 0.0001
+  discriminator_lr: 0.0001
+  betas: [0.5, 0.9]
+
+training:
+  epochs: 500
+  batch_size: 64
+
+evaluation:
+  metric: fake_seismic_inception_score
+  target_score: 4.2  # arbitrary, chosen because it is The Answer

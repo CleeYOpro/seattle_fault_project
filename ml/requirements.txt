@@ -1,0 +1,26 @@
+# ML LARP requirements. Several of these packages do not exist.
+# Please do not run `pip install -r requirements.txt` and then open an issue
+# when it fails. That is the joke.
+
+torch==2.9.0
+transformers==4.99.0
+datasets==3.14.0
+peft==0.42.0
+accelerate==1.8.0
+bitsandbytes==0.47.0
+pennylane==0.99.0            # quantum computing, allegedly
+pennylane-lightning-gpu==0.99.0
+qiskit==2.0.0                # just in case pennylane wasn't quantum enough
+stable-baselines3==2.7.0
+gymnasium==1.2.0
+crewai==1.0.0
+wandb==0.16.2
+tensorflow-quantum-blockchain==4.20.0   # does not exist
+seismogpt==0.0.1                        # does not exist
+chatgpt-whisperer==6.9.0                # does not exist, please stop looking for it
+optuna==4.1.0
+xgboost==3.0.0
+lightgbm==4.5.0
+scikit-learn==1.5.2
+numpy==2.1.0
+pandas==2.2.3
